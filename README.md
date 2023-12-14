@@ -113,6 +113,8 @@ cargo test
 cargo doc --open
 ```
 
+For more info how to use Rust Tonic check this [link](https://github.com/hyperium/tonic/blob/master/examples/helloworld-tutorial.md)
+
 
 ## [License](LICENSE)
 
