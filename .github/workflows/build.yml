@@ -17,6 +17,8 @@ jobs:
       PROJECT_NAME: service-template
     steps:
       - uses: actions/checkout@v4
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v2
       - uses: cargo-generate/cargo-generate-action@v0.18.5
         with:
           name: ${{ env.PROJECT_NAME }}
