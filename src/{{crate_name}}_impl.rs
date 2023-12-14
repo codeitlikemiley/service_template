@@ -6,7 +6,7 @@ pub struct {{project-name | pascal_case}}ServiceImpl {}
 #[tonic::async_trait]
 impl {{project-name | pascal_case}}Service for {{project-name | pascal_case}}ServiceImpl {
 
-async fn make_{{crate_name}}(&self, request: Request<{{project-name | pascal_case}}Request>) -> Result<Response<{{project-name | pascal_case}}Response>, Status> {
+async fn {{rpc_method}} (&self, request: Request<{{project-name | pascal_case}}Request>) -> Result<Response<{{project-name | pascal_case}}Response>, Status> {
     let name = request.into_inner().name;
     let reply = {{project-name | pascal_case}}Response {
         message: format!("Hello {}!", name),

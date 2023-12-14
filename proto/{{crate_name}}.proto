@@ -2,7 +2,7 @@ syntax = "proto3";
 package {{crate_name}};
 
 service {{project-name | pascal_case}}Service {
-rpc Make{{project-name | pascal_case}} ({{project-name | pascal_case}}Request) returns ({{project-name | pascal_case}}Response);
+rpc {{rpc_method | pascal_case}} ({{project-name | pascal_case}}Request) returns ({{project-name | pascal_case}}Response);
 }
 
 message {{project-name | pascal_case}}Request {

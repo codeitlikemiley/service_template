@@ -14,7 +14,7 @@ mod tests {
         let request = Request::new({{project-name | pascal_case}}Request {
             name: "Tonic".into(),
         });
-        let response =  service.make_{{crate_name}}(request).await.unwrap();
+        let response =  service.{{rpc_method}}(request).await.unwrap();
         assert_eq!(
             response.into_inner().message,
             "Hello Tonic!".to_string()
