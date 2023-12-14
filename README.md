@@ -42,16 +42,19 @@ workspace (root)
 
 ## Usage
 
+### Change directory to the services directory.
+
 Note: The following command will generate a new GRPC service template.
+
 ```bash
 cd <workspace_root>/services
-cargo generate --git codeitlikemiley/service_template --name <service_name>
-cd <service_name>
 ```
+### Generate a new GRPC service template.
 
-output:
+
 ```sh
 cargo generate --git codeitlikemiley/service_template --name <service_name>
+
 🔧   Destination: /Users/uriah/Code/example
 🔧   project-name: example ...
 🔧   Generating template ...
@@ -60,7 +63,44 @@ cargo generate --git codeitlikemiley/service_template --name <service_name>
 🔧   Moving generated files into: `/Users/uriah/Code/example`...
 🔧   Initializing a fresh Git repository
 ✨   Done! New project created /Users/uriah/Code/example
+
+
+cd <service_name>
+
 ```
+
+### Build , Testing and Documentation
+
+```sh
+cargo build
+cargo test
+cargo doc --open
+```
+
+### Configure your Rust tonic App
+
+For more info how to use Rust Tonic check this [link](https://github.com/hyperium/tonic/blob/master/examples/helloworld-tutorial.md)
+
+### Add to your Rust App workspace `Cargo.toml`
+
+```toml
+[workspace]
+resolver = "2"
+members = [
+  "backend", # consumes all the services in the services directory
+  # add here the new service
+  "services/<service_name>
+]
+# if you download this repo and wanna use locally , you can exclude it on the workspace
+# git clone codeitlikemiley/service_template template
+# note you need to also add it on your .gitignore
+exclude = ["template"]
+```
+
+### Use the Service on your backend
+
+TODO: add repo link here
+
 
 ## Development
 
@@ -72,50 +112,6 @@ cargo generate --test
 ```
 
 For more info how to use cargo-generate check this [link](https://cargo-generate.github.io/cargo-generate/usage.html)
-
-## Workflow
-
-1. Create additional / new proto files in the `proto` directory.
-Note: you can shove all your proto files in the `proto` directory.
-
-2. Run `cargo build` to generate the GRPC service stubs.
-after running `cargo build` you should see the following files generated:
-
-```sh
-src/<protobufname>.rs
-```
-it can be one or more files depending on the proto files you have in the `proto` directory.
-
-3. Implement the GRPC service stubs in `src/<service_name>_impl.rs`.
-
-- Add more methods to the GRPC service stubs.
-- Add more crates to the `Cargo.toml` file as dependencies as needed.
-
-4. Add on your workspace `Cargo.toml` the following:
-
-```toml
-[workspace]
-resolver = "2"
-members = [
-  "server",
-  "lib",
-  # add here the new service
-  "services/<service_name>
-]
-# if you download this repo and wanna use locally , you can exclude it on the workspace
-# git clone codeitlikemiley/service_template template
-# note you need to also add it on your .gitignore
-exclude = ["template"]
-```
-
-5. Add more  tests and documentation on src/lib.rs
-
-```rust
-cargo test
-cargo doc --open
-```
-
-For more info how to use Rust Tonic check this [link](https://github.com/hyperium/tonic/blob/master/examples/helloworld-tutorial.md)
 
 
 ## [License](LICENSE)
