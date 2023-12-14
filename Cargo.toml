@@ -1,0 +1,18 @@
+[package]
+name = "{{crate_name}}"
+version = "0.1.0"
+edition = "2021"
+authors = ["{{authors}}"]
+description = "{{service_description}}"
+
+[dependencies]
+dotenv = "0.15.0"
+prost = "0.12.3"
+prost-derive = "0.12.3"
+prost-types = "0.12.3"
+tokio = {version = "1.27.0",  features = ["full"] }
+tonic = {version = "0.10.2", features = ["codegen"] }
+
+[build-dependencies]
+tonic-build = "0.10.2"
+glob = "0.3.1"
