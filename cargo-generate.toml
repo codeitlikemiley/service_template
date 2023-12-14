@@ -1,6 +1,6 @@
 [placeholders]
-"service_description" = { type = "string", prompt = "Enter a brief description of the service:" }
-"rpc_method" = { type = "string", prompt = "Enter the RPC method name:" }
+"service_description" = { type = "string", prompt = "Enter a brief description of the service:", default = "Default Service Description" }
+"rpc_method" = { type = "string", prompt = "Enter the RPC method name:", default = "make" }
 
 [template]
 include = ["src/**/*", "Cargo.toml", "proto/**/*", "build.rs"]
