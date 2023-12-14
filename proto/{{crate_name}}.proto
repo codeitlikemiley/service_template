@@ -1,14 +1,14 @@
 syntax = "proto3";
-    package {{crate_name}};
+package {{crate_name}};
 
 service {{project-name | pascal_case}}Service {
-rpc Hello (HelloRequest) returns (HelloResponse) {}
-    }
+rpc Make{{project-name | pascal_case}} ({{project-name | pascal_case}}Request) returns ({{project-name | pascal_case}}Response);
+}
 
-message HelloRequest {
+message {{project-name | pascal_case}}Request {
   string name = 1;
 }
 
-message HelloResponse {
+message {{project-name | pascal_case}}Response {
   string message = 1;
 }
