@@ -17,7 +17,7 @@ jobs:
       PROJECT_NAME: service_template
     steps:
       - uses: actions/checkout@v4
-      - uses: cargo-generate/cargo-generate-action@v0.17
+      - uses: cargo-generate/cargo-generate-action@v0.18.5
         with:
           name: ${{ env.PROJECT_NAME }}
       - uses: dtolnay/rust-toolchain@stable
