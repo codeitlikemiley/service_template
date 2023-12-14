@@ -3,7 +3,8 @@
 
 [template]
 include = ["src/**/*", "Cargo.toml", "proto/**/*", "build.rs"]
-exclude = ["build/", "target/"][hooks]
+exclude = ["build/", "target/"]
 
+[hooks]
 pre_gen_command = "echo 'Preparing to generate the service...'"
 post_gen_command = "echo 'Service generation complete!'"
