@@ -14,12 +14,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PROJECT_NAME: service_template
+      PROJECT_NAME: service-template
     steps:
       - uses: actions/checkout@v4
       - uses: cargo-generate/cargo-generate-action@v0.18.5
         with:
           name: ${{ env.PROJECT_NAME }}
+          arguments: "--branch main --define service_description=\"make call\" --define rpc_method=\"make\""
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
