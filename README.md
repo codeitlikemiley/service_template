@@ -71,6 +71,49 @@ cd service_template
 cargo generate --test
 ```
 
+## Workflow
+
+1. Create additional / new proto files in the `proto` directory.
+Note: you can shove all your proto files in the `proto` directory.
+
+2. Run `cargo build` to generate the GRPC service stubs.
+after running `cargo build` you should see the following files generated:
+
+```sh
+src/<protobufname>.rs
+```
+it can be one or more files depending on the proto files you have in the `proto` directory.
+
+3. Implement the GRPC service stubs in `src/<service_name>_impl.rs`.
+
+- Add more methods to the GRPC service stubs.
+- Add more crates to the `Cargo.toml` file as dependencies as needed.
+
+4. Add on your workspace `Cargo.toml` the following:
+
+```toml
+[workspace]
+resolver = "2"
+members = [
+  "server",
+  "lib",
+  # add here the new service
+  "services/<service_name>
+]
+# if you download this repo and wanna use locally , you can exclude it on the workspace
+# git clone codeitlikemiley/service_template template
+# note you need to also add it on your .gitignore
+exclude = ["template"]
+```
+
+5. Add more  tests and documentation on src/lib.rs
+
+```rust
+cargo test
+cargo doc --open
+```
+
+
 ## [License](LICENSE)
 
 ## Pull Requests
