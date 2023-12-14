@@ -77,9 +77,9 @@ cargo test
 cargo doc --open
 ```
 
-### Configure your Rust tonic App
+### Configure your rust tonic service
 
-For more info how to use Rust Tonic check this [link](https://github.com/hyperium/tonic/blob/master/examples/helloworld-tutorial.md)
+To learn more about Rust Tonic click this [link](https://github.com/hyperium/tonic/blob/master/examples/helloworld-tutorial.md)
 
 ### Add to your Rust App workspace `Cargo.toml`
 
