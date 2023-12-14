@@ -71,6 +71,8 @@ cd service_template
 cargo generate --test
 ```
 
+For more info how to use cargo-generate check this [link](https://cargo-generate.github.io/cargo-generate/usage.html)
+
 ## Workflow
 
 1. Create additional / new proto files in the `proto` directory.
