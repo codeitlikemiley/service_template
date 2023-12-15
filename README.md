@@ -101,10 +101,79 @@ members = [
 exclude = ["template"]
 ```
 
-### Use the Service on your backend
+### Update your server `main.rs` and `Cargo.toml`
 
-TODO: add repo link here
+`Cargo.toml`
+```toml
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"
 
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+auth_service = { path = "../services/auth" }
+tonic = "0.10.2"
+tokio = { version = "1.35.0", features = [] }
+```
+
+`main.rs`
+```rust
+use tonic::{transport::Server};
+// Import ServiceNameServer
+use auth_service::auth::auth_service_server::{AuthServiceServer};
+
+use auth_service::auth_impl::AuthServiceImpl;
+
+#[tokio::main] // Use the tokio runtime for async
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let addr = "[::1]:50051".parse()?;
+    
+    // Create a new instance of your service implementation
+    let auth = AuthServiceImpl{};
+
+    Server::builder()
+        // Add the service to the gRPC server
+        .add_service(AuthServiceServer::new(auth))
+        // Add more services here
+        .serve(addr)
+        .await?;
+
+    Ok(())
+}
+```
+
+### Test your Service with GRPC Client
+
+1. Run Server
+```sh
+cargo run -p server
+```
+
+1. using `grpcurl` Client
+
+```sh
+grpcurl -plaintext -import-path ./services/auth/proto -proto auth.proto -d '{"name": "Uriah"}' '[::1]:50051' auth.AuthService.Login
+```
+
+output:
+```json
+{
+  "message": "Hello Tonic!"
+}
+```
+
+the example `auth.AuthService.Login` is the `package_name.ServiceName.MethodName` from the `auth.proto` file
+
+`auth.proto`
+```protobuf
+package auth;
+
+service AuthService {
+  rpc Login (LoginRequest) returns (LoginResponse) {}
+}
+```
 
 ## Development
 
