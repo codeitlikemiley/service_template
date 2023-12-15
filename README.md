@@ -115,7 +115,7 @@ For more info how to use cargo-generate check this [link](https://cargo-generate
 
 Learn about Liquid Templating [here](https://shopify.github.io/liquid/)
 
-Learn more about Embedded Scripting for Rust [here](https://rhai.rs/book/about/index.html)
+Learn more about Embedded Scripting for Rust [here](https://rhai.rs/book/about/index.html) , link for for [LSP](https://github.com/rhaiscript/lsp) on vscode
 
 
 ## [License](LICENSE)
