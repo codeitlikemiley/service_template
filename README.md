@@ -151,8 +151,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 cargo run -p server
 ```
 
-1. using `grpcurl` Client
+2. Use `grpcurl` Client
 
+Tp invoke the specific rpc method use the following command
 ```sh
 grpcurl -plaintext -import-path ./services/auth/proto -proto auth.proto -d '{"name": "Uriah"}' '[::1]:50051' auth.AuthService.Login
 ```
@@ -160,11 +161,12 @@ grpcurl -plaintext -import-path ./services/auth/proto -proto auth.proto -d '{"na
 output:
 ```json
 {
-  "message": "Hello Tonic!"
+  "message": "Hello Uriah!"
 }
 ```
 
-the example `auth.AuthService.Login` is the `package_name.ServiceName.MethodName` from the `auth.proto` file
+
+Note: that the example `auth.AuthService.Login` is the `package_name.ServiceName.MethodName` from the `auth.proto` file
 
 `auth.proto`
 ```protobuf
