@@ -25,7 +25,7 @@ workspace (root)
 │
 ├── backend
 │
-├── frontend
+├── frontend (Use Dioxus Template)
 │
 └── services
     └── <service_name>
@@ -112,6 +112,10 @@ cargo generate --test
 ```
 
 For more info how to use cargo-generate check this [link](https://cargo-generate.github.io/cargo-generate/usage.html)
+
+Learn about Liquid Templating [here](https://shopify.github.io/liquid/)
+
+Learn more about Embedded Scripting for Rust [here](https://rhai.rs/book/about/index.html)
 
 
 ## [License](LICENSE)
