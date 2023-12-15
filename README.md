@@ -51,6 +51,10 @@ cd <workspace_root>/services
 ```
 ### Generate a new GRPC service template.
 
+For more info how to use cargo-generate check this [link](https://cargo-generate.github.io/cargo-generate/usage.html)
+
+Learn about Liquid Templating [here](https://shopify.github.io/liquid/)
+
 
 ```sh
 cargo generate --git codeitlikemiley/service_template --name <service_name>
@@ -111,11 +115,11 @@ cd service_template
 cargo generate --test
 ```
 
-For more info how to use cargo-generate check this [link](https://cargo-generate.github.io/cargo-generate/usage.html)
-
-Learn about Liquid Templating [here](https://shopify.github.io/liquid/)
+## Embedded Scripting
 
 Learn more about Embedded Scripting for Rust [here](https://rhai.rs/book/about/index.html) , link for for [LSP](https://github.com/rhaiscript/lsp) on vscode
+
+Example usage of Rhai Scripting on the template [here](https://cargo-generate.github.io/cargo-generate/templates/scripting.mini-example.html#Rhai-extensions)
 
 
 ## [License](LICENSE)
