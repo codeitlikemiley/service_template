@@ -117,7 +117,7 @@ cargo generate --test
 
 ## Embedded Scripting
 
-Learn more about Embedded Scripting for Rust [here](https://rhai.rs/book/about/index.html) , link for for [LSP](https://github.com/rhaiscript/lsp) on vscode
+Learn more about Embedded Scripting for Rust [here](https://rhai.rs/book/about/index.html) , link for [LSP](https://github.com/rhaiscript/lsp) on vscode
 
 Example usage of Rhai Scripting on the template [here](https://cargo-generate.github.io/cargo-generate/templates/scripting.mini-example.html#Rhai-extensions)
 
