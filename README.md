@@ -57,7 +57,7 @@ Learn about Liquid Templating [here](https://shopify.github.io/liquid/)
 
 
 ```sh
-cargo generate --git codeitlikemiley/service_template --name <service_name>
+cargo generate --git codeitlikemiley/services_template --name <service_name>
 
 🔧   Destination: /Users/uriah/Code/example
 🔧   project-name: example ...
@@ -96,7 +96,7 @@ members = [
   "services/<service_name>
 ]
 # if you download this repo and wanna use locally , you can exclude it on the workspace
-# git clone codeitlikemiley/service_template template
+# git clone codeitlikemiley/services_template template
 # note you need to also add it on your .gitignore
 exclude = ["template"]
 ```
@@ -110,7 +110,7 @@ TODO: add repo link here
 
 ```bash
 git clone https://github.com/codeitlikemiley/service_template.git
-cd service_template
+cd services_template
 # check if the template is working
 cargo generate --test
 ```
