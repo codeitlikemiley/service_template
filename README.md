@@ -72,13 +72,13 @@ cargo generate --git codeitlikemiley/server_template --name server
 
 ## Usage: Generating a new GRPC Service from the template
 
--[ ] Change directory to the services directory.
+- [ ] Change directory to the services directory.
 
 ```bash
 cd <workspace_root>/services
 ```
 
--[ ] Generate a new GRPC Service.
+- [ ] Generate a new GRPC Service.
 
 ```sh
 cargo generate --git codeitlikemiley/services_template --name auth
