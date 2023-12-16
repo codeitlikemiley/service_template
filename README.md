@@ -1,6 +1,7 @@
 # GRPC Service Generator
 
 [![Build Template](https://github.com/codeitlikemiley/service_template/actions/workflows/build.yml/badge.svg)](https://github.com/codeitlikemiley/service_template/actions/workflows/build.yml)
+
 ## Requirements
 
 Note: Install the following before you can use the template generator.
@@ -20,14 +21,12 @@ Note: Install the following before you can use the template generator.
 ```sh
 workspace (root)
 ├── Cargo.toml
-├── Carg.lock
-├── README.md
 │
-├── backend
+├── backend (server_template)
 │
-├── frontend (Use Dioxus Template)
+├── frontend (dioxus_template)
 │
-└── services
+└── services (service_template)
     └── <service_name>
         ├── proto
         │  └── <service_name>.proto
@@ -68,9 +67,7 @@ cargo generate --git codeitlikemiley/services_template --name <service_name>
 🔧   Initializing a fresh Git repository
 ✨   Done! New project created /Users/uriah/Code/example
 
-
-cd <service_name>
-
+cd <workspace_root>
 ```
 
 ### Build , Testing and Documentation
@@ -129,7 +126,7 @@ use auth_service::auth_impl::AuthServiceImpl;
 #[tokio::main] // Use the tokio runtime for async
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let addr = "[::1]:50051".parse()?;
-    
+
     // Create a new instance of your service implementation
     let auth = AuthServiceImpl{};
 
@@ -147,15 +144,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ### Test your Service with GRPC Client
 
 1. Run Server
+
 ```sh
 cargo run -p server
 ```
 
 2. Use `grpcurl` Client
 
-Tp invoke the specific rpc method use the following command
+To invoke the specific rpc method use the following command
 ```sh
-grpcurl -plaintext -import-path ./services/auth/proto -proto auth.proto -d '{"name": "Uriah"}' '[::1]:50051' auth.AuthService.Login
+cd <workspace>
+grpcurl -plaintext -import-path ./services/auth/proto -proto auth.proto -d '{"name": "Tonic"}' '[::1]:50051' auth.AuthService.Login
 ```
 
 output:

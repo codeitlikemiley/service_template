@@ -1,6 +1,7 @@
 use crate::{{crate_name}}::{{"{"}}{{crate_name}}_service_server::{{project-name | pascal_case}}Service, {{project-name | pascal_case}}Request, {{project-name | pascal_case}}Response};
 use tonic::{Request, Response, Status};
 
+#[derive(Default)]
 pub struct {{project-name | pascal_case}}ServiceImpl {}
 
 #[tonic::async_trait]
