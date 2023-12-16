@@ -1,4 +1,4 @@
-name: Build Template
+name: Build Service Template
 on:
   # https://docs.github.com/en/actions/reference/events-that-trigger-workflows#workflow_dispatch
   workflow_dispatch:
