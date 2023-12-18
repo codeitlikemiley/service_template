@@ -10,6 +10,7 @@ Note: Install the following before you can use the template generator.
 - [cargo-generate](https://cargo-generate.github.io/cargo-generate/installation.html)
 - [protoc](https://grpc.io/docs/protoc-installation/)
 - [server_template](https://github.com/codeitlikemiley/server_template)
+- [workspacer](https://github.com/codeitlikemiley/workspacer) (optional cli tools to manage rust workspace)
 
 ## GRPC Client
 
@@ -26,6 +27,34 @@ Note: Install the following before you can use the template generator.
 ```sh
 mkdir <workspace_root>
 cd <workspace_root>
+```
+
+- [ ] Update workspace `Cargo.toml` file content below.
+      
+Note: The workspacer command above would generate this Code on `Cargo.toml`
+
+```toml
+[workspace]
+resolver = "2"
+members = [
+    server,
+    # add here services here after you generated it
+    auth, # example service
+]
+```
+
+or you can download and install [workspacer cli](https://github.com/codeitlikemiley/workspacer) and use it to manage your workspace
+
+```sh
+mkdir <workspace_root>
+workspacer init
+# by default it has the server in the member
+# to add more services
+worspacer add services/auth
+# you can also remove service
+workspacer rm service/auth
+# to view all current members of workspace
+workspacer ls
 ```
 
 Example Workspace Tree Structure
@@ -50,23 +79,42 @@ workspace (root)
 
 ```
 
-- [ ] Update workspace `Cargo.toml` file content below.
-
-```toml
-[workspace]
-resolver = "2"
-members = [
-    server,
-    # add here services here after you generated it
-    auth, # example service
-]
-```
-
 - [ ] Create the Server
 
 ```sh
 cd <workspace_root>
 cargo generate --git codeitlikemiley/server_template --name server
+```
+
+## Favorite The template 
+
+`~/.cargo/cargo-generate.toml` if this file dont exist please create it first `touch ~/.cargo/cargo-generate.toml`
+
+- [ ] Create Folder for Templates
+
+```sh
+cd ~/.cargo
+mkdir templates
+```
+- [ ] Add to favorites [services_template](https://github.com/codeitlikemiley/services_template) and [server_template](https://github.com/codeitlikemiley/server_template)
+
+```toml
+[values]
+gh_username = "YOUR_USERNAME"
+ide = "none|vscode"
+
+[favorites.services]
+path = "/Users/uriah/.cargo/templates/services_template"
+
+[favorites.server]
+path = "/Users/uriah/.cargo/templates/server_template/"
+```
+
+- [ ]  Generate Server and Services template with short cut
+
+```sh
+cargo generate services --name auth
+cargo generate server --name server
 ```
 
 
