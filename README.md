@@ -95,7 +95,11 @@ cargo generate --git codeitlikemiley/server_template --name server
 ```sh
 cd ~/.cargo
 mkdir templates
+cd templates
+git clone https://github.com/codeitlikemiley/services_template
+git clone https://github.com/codeitlikemiley/server_template
 ```
+
 - [ ] Add to favorites [services_template](https://github.com/codeitlikemiley/services_template) and [server_template](https://github.com/codeitlikemiley/server_template)
 
 ```toml
@@ -104,10 +108,10 @@ gh_username = "YOUR_USERNAME"
 ide = "none|vscode"
 
 [favorites.services]
-path = "/Users/uriah/.cargo/templates/services_template"
+path = "/Users/YOUR_USERNAME/.cargo/templates/services_template"
 
 [favorites.server]
-path = "/Users/uriah/.cargo/templates/server_template/"
+path = "/Users/YOUR_USERNAME/.cargo/templates/server_template/"
 ```
 
 - [ ]  Generate Server and Services template with short cut
